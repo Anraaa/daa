@@ -1,2 +1,6 @@
+.gitignore
+
 pert2/sampleapp/db/data/*
 pert2/sampleapp/src/*
+
+pert3/sampleapp/db/data/*
