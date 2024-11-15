@@ -1,7 +1,7 @@
 **# **Dokumen Persyaratan Bisnis (BRD)**  
 ### **Proyek:** Sistem Manajemen Data Barang Pada After Sunday Store   
 **Versi:** 1.0
-**Tanggal:** 14 November 2024  
+**Tanggal:** 15 November 2024  
 
 ---
 
