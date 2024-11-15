@@ -12,13 +12,6 @@ class PermissionsSeeder extends Seeder
     {
         // Create permissions if they don't exist
         $permissions = [
-            // Permissions untuk Admin
-            'view_barang',
-            'create_barang',
-            'update_barang',
-            'delete_barang',
-            'view_any_barang',
-
             // Permissions untuk Kepala Gudang
             'create_barang',
             'update_barang',
@@ -34,10 +27,6 @@ class PermissionsSeeder extends Seeder
         foreach ($permissions as $permission) {
             Permission::firstOrCreate(['name' => $permission]);
         }
-
-        // Get or create the 'admin' role and assign permissions
-        $adminRole = Role::firstOrCreate(['name' => 'admin']);
-        $adminRole->givePermissionTo(Permission::all());
 
         // Get or create the 'kepala_gudang' role and assign permissions
         $kepalaGudangRole = Role::firstOrCreate(['name' => 'kepala_gudang']);
