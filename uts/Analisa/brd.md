@@ -1,5 +1,5 @@
 **# **Dokumen Persyaratan Bisnis (BRD)**  
-### **Proyek:** Sistem Manajemen Data Barang Pada After Sunday Store  
+### **Proyek:** Sistem Manajemen Data Barang Pada After Sunday Store   
 **Versi:** 1.0
 **Tanggal:** 14 November 2024  
 
@@ -15,14 +15,15 @@
 ### **Untuk Supervisor**
 - **Melihat Data Barang**: Supervisor hanya memiliki hak akses untuk memantau rincian barang yang sudah ditambahkan, tanpa kemampuan untuk mengubah data. Berikut adalah rincian barangnya seperti
   - Nama barang
-  - Kategori
   - Stok tersedia
   - Harga satuan
   - Kode barang
   - Keterangan tambahan 
+  - Kategori
+  - Ukuran (S, M, L, XL)
 
 ### **Untuk Kepala Gudang**
-- **Manajemen Barang**: Kepala gudang bertugas untuk mengelola seluruh data barang, termasuk stok, penambahan, pembaruan, dan penghapusan barang.
+- **Manajemen Barang**: Kepala gudang bertugas untuk mengelola seluruh data barang, termasuk stok, penambahan, pembaruan, dan penghapusan barang. Mereka juga dapat menentukan ukuran barang (S, M, L, XL) saat mengelola barang.
 
 ### **Untuk Admin**
 - **Akses Penuh**: Admin memiliki kontrol penuh atas data barang dan manajemen pengguna, memastikan semua proses berjalan sesuai dengan kebutuhan.
@@ -34,9 +35,9 @@
 ### **Sistem Login**
 - **Akses Berdasarkan Peran**: Supervisor, kepala gudang, dan admin dapat login dengan hak akses berbeda.
 
-### **Pengaturan & Tampilan Barang**
+### **Manajemen Data Barang**
 - **Admin**: Mengelola semua data barang dan pengguna.
-- **Kepala Gudang**: Mengelola data barang (input, update, delete).
+- **Kepala Gudang**: Mengelola data barang (input, update, delete) dan menentukan ukuran barang.
 - **Supervisor**: Hanya melihat data barang yang ditambahkan oleh kepala gudang.
 
 ---
@@ -59,12 +60,19 @@
   - `nama: varchar(255)` - Nama barang
   - `stok: int` - Jumlah stok barang
   - `harga_satuan: decimal(10,2)` - Harga satuan barang
-  - `kode_barang: varchar(50)` - Kategori barang
+  - `kode_barang: varchar(50)` - Kode barang
   - `keterangan: text` - Keterangan tambahan (opsional)
+  - `kategori` - Kategori barang
+  - `ukuran: enum('S', 'M', 'L', 'XL')` - Ukuran barang yang tersedia
   - `created_at: timestamp` - Waktu data dibuat
   - `updated_at: timestamp` - Waktu data diubah
+  - `user_id: unsignedBigInteger` - Menyimpan ID user yang bertanggung jawab untuk barang tersebut (relasi dengan tabel users).
+  - `foreign('user_id')->references('id')->on('users')->onDelete('cascade')` - Relasi ke tabel users, dengan aturan onDelete('cascade') untuk menghapus barang secara otomatis jika user yang bertanggung jawab dihapus.
 - **Seeder**: Data barang awal untuk pengujian.
 - **Resource**: Endpoint API untuk data barang, dapat diakses oleh supervisor, kepala gudang, dan admin.
+
+### **RoleSeeder**
+- **Seeder**: `RoleSeeder`. Bertanggung jawab untuk mengisi data roles (peran) dan mengaitkan roles tersebut dengan users tertentu di aplikasi
   
 ### **Permissions**
 - **Model**: `Permission`. digunakan untuk menyimpan data permissions dengan atribut berikut:
@@ -92,6 +100,9 @@ Permissions digunakan untuk mengatur akses pengguna sesuai peran mereka di dalam
 2. **Permissions untuk Kepala Gudang**
    - `view_barang`: Mengizinkan kepala gudang melihat barang.
    - `view_any_barang`: Mengizinkan kepala gudang melihat semua barang.
+   - `create_barang`: Mengizinkan kepala gudang menambah barang.
+   - `update_barang`: Mengizinkan kepala gudang mengubah data barang.
+   - `delete_barang`: Mengizinkan kepala gudang menghapus data barang.
 
 3. **Permissions untuk Supervisor**
    - `view_barang`: Mengizinkan supervisor melihat barang.
@@ -99,10 +110,3 @@ Permissions digunakan untuk mengatur akses pengguna sesuai peran mereka di dalam
 
 ---
 
-## **7. Business Flow System Via Flowchart**
-
-### **Flowchart Sistem Manajemen Data Barang di After Sunday Store**
-
-![alt text](image.png)
-
-### **Usecase Sistem Manajemen Data Barang di After Sunday Store**

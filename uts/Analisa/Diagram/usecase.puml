@@ -1,0 +1,58 @@
+@startuml t
+actor Admin
+actor "Kepala Gudang" as WarehouseManager
+actor Supervisor
+
+usecase "Masukkan Email dan Password" as UC1
+usecase "Cek Kredensial" as UC2
+usecase "Login Gagal" as UC3
+usecase "Login As Admin" as UC4
+usecase "Login As Kepala Gudang" as UC5
+usecase "Login As Supervisor" as UC6
+usecase "Logout" as UC7
+
+usecase "Akses Manajemen Pengguna" as UC8
+usecase "Tambah Pengguna" as UC9
+usecase "Edit Pengguna" as UC10
+usecase "Hapus Pengguna" as UC11
+
+usecase "Akses Manajemen Barang" as UC12
+usecase "Tambah Barang" as UC13
+usecase "Edit Barang" as UC14
+usecase "Hapus Barang" as UC15
+
+usecase "Akses Lihat Data Barang" as UC16
+usecase "Tampilkan Rincian Barang" as UC17
+
+Admin --> UC1
+WarehouseManager --> UC1
+Supervisor --> UC1
+
+UC1 --> UC2
+UC2 --> UC3 : tidak valid
+UC3 --> UC1
+
+UC2 --> UC4 : valid (Admin)
+UC2 --> UC5 : valid (Kepala Gudang)
+UC2 --> UC6 : valid (Supervisor)
+
+UC4 --> UC8 : include
+UC4 --> UC12 : include
+UC4 --> UC7 : extend
+
+UC5 --> UC12 : include
+UC5 --> UC7 : extend
+
+UC6 --> UC16 : include
+UC6 --> UC7 : extend
+
+UC8 --> UC9 : include
+UC8 --> UC10 : include
+UC8 --> UC11 : include
+
+UC12 --> UC13 : include
+UC12 --> UC14 : include
+UC12 --> UC15 : include
+
+UC16 --> UC17 : include
+@enduml
