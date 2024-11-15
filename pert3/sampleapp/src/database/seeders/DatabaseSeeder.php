@@ -3,53 +3,46 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use App\Models\Classroom;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Role;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
-        $this->seedUsers();
         $this->callSeeders();
+        $this->seedUsers();
+    }
+
+    private function callSeeders(): void
+    {
+        $this->call([
+            RoleSeeder::class, // RoleSeeder akan membuat role yang dibutuhkan
+            ProductSeeder::class,
+            OrderSeeder::class,
+        ]);
     }
 
     private function seedUsers(): void
     {
+        // Membuat user Admin jika belum ada
         if (!User::where('email', 'admin@admin.com')->exists()) {
-            $users = User::factory()->createmany([
-                [
-                    'name' => 'Admin',
-                    'email' => 'admin@admin.com',
-                    'password' => bcrypt('password'),
-                ],
-                [
-                    'name' => 'Mahasiswa',
-                    'email' => 'mhs@admin.com',
-                    'password' => bcrypt('password'),
-                ],
-                [
-                    'name' => 'Dosen',
-                    'email' => 'dsn@admin.com',
-                    'password' => bcrypt('password'),
-                ],
+            $admin = User::create([
+                'name' => 'Admin',
+                'email' => 'admin@admin.com',
+                'password' => bcrypt('password'),
             ]);
-
-            foreach ($users as $user) {
-                if ($user->email == 'admin@admin.com') {
-                    $user->assignRole('super_admin');
-                    }
-                }
-            }
+            $admin->assignRole('super_admin');
         }
 
-        private function callSeeders(): void {
-            $this->call([
-                RoleSeeder::class,
-                ClassroomSeeder::class,
+        // Membuat user Pembeli jika belum ada
+        if (!User::where('email', 'pbl@admin.com')->exists()) {
+            $buyer = User::create([
+                'name' => 'Pembeli',
+                'email' => 'pbl@admin.com',
+                'password' => bcrypt('password'),
             ]);
+            $buyer->assignRole('Pembeli');
         }
+    }
 }

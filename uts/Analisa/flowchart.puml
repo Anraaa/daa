@@ -1,0 +1,73 @@
+@startuml
+title Flowchart untuk Aplikasi Sistem Manajemen Data Barang di After Sunday Store
+
+start
+:Buka Aplikasi;
+
+:Login;
+
+:Masukkan Email dan Password;
+
+:Cek Kredensial;
+
+if (Kredensial Valid?) then (Ya)
+    if (Admin?) then (Ya)
+        :Login Sebagai Admin;
+        :Akses Manajemen Pengguna;
+        :Pilih Aksi;
+        if (Aksi = Tambah Pengguna) then (Tambah Pengguna)
+            :Masukkan Detail Pengguna;
+            :Simpan Pengguna;
+        elseif (Aksi = Edit Pengguna) then (Edit Pengguna)
+            :Pilih Pengguna yang Akan Diedit;
+            :Perbarui Detail Pengguna;
+            :Simpan Perubahan;
+        elseif (Aksi = Hapus Pengguna) then (Hapus Pengguna)
+            :Pilih Pengguna yang Akan Dihapus;
+            :Konfirmasi Penghapusan;
+        endif
+        :Akses Manajemen Barang;
+        :Pilih Aksi;
+        if (Aksi = Tambah Barang) then (Tambah Barang)
+            :Masukkan Detail Barang;
+            :Simpan Barang;
+        elseif (Aksi = Edit Barang) then (Edit Barang)
+            :Pilih Barang yang Akan Diedit;
+            :Perbarui Detail Barang;
+            :Simpan Perubahan;
+        elseif (Aksi = Hapus Barang) then (Hapus Barang)
+            :Pilih Barang yang Akan Dihapus;
+            :Konfirmasi Penghapusan;
+        endif
+        :Logout;
+    else
+        if (Kepala Gudang?) then (Ya)
+            :Login Sebagai Kepala Gudang;
+            :Akses Manajemen Barang;
+            :Pilih Aksi;
+            if (Aksi = Tambah Barang) then (Tambah Barang)
+                :Masukkan Detail Barang;
+                :Simpan Barang;
+            elseif (Aksi = Edit Barang) then (Edit Barang)
+                :Pilih Barang yang Akan Diedit;
+                :Perbarui Detail Barang;
+                :Simpan Perubahan;
+            elseif (Aksi = Hapus Barang) then (Hapus Barang)
+                :Pilih Barang yang Akan Dihapus;
+                :Konfirmasi Penghapusan;
+            endif
+            :Logout;
+        else
+            :Login Sebagai Supervisor;
+            :Akses Lihat Data Barang;
+            :Tampilkan Rincian Barang;
+            :Logout;
+        endif
+    endif
+else
+    :Tampilkan "Kredensial Tidak Valid";
+    :Kembali ke Halaman Login;
+endif
+
+stop
+@enduml
