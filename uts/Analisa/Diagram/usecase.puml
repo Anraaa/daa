@@ -1,4 +1,4 @@
-@startuml t
+@startuml u
 actor Admin
 actor "Kepala Gudang" as WarehouseManager
 actor Supervisor

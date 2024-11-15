@@ -21,6 +21,7 @@
   - Keterangan tambahan 
   - Kategori
   - Ukuran (S, M, L, XL)
+  - Nama User untuk melihat siapa yang menambah atau mengedit pada data barang
 
 ### **Untuk Kepala Gudang**
 - **Manajemen Barang**: Kepala gudang bertugas untuk mengelola seluruh data barang, termasuk stok, penambahan, pembaruan, dan penghapusan barang. Mereka juga dapat menentukan ukuran barang (S, M, L, XL) saat mengelola barang.
