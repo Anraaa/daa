@@ -2,4 +2,9 @@ pert2/sampleapp/db/*
 pert3/sampleapp/db/*
 pert10/sampleapp/db/*
 
+<<<<<<< HEAD
+=======
+uts/sampleapp/db/*
+
+>>>>>>> dc3ca19 (gitignore)
 projectUAS/sampleapp/db/data/*
