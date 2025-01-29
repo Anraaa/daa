@@ -1,5 +1,7 @@
 # Analisa Studi Kasus
 
+## Studi Kasus
+
 Berdasarkan peraturan pemerintah yang terbaru terdapat suatu kebijakakn terkait atlit dimana fokusnya ada untuk mencari bibit muda potensi untuk regenerasi atlit. Saat ini perusahaan anda bergerak dalam bidang pelatihan olahraga yang mana fokusnya untuk mendapatkan bibit atlit dan mendapatkan juara dalam liga atau turnamen baik dalam kancah nasional ataupun internasional
 
 ## Latar Belakang Perusahaan
