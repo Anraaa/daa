@@ -152,7 +152,7 @@ A. **Jadwal Harian**
   - **Minggu**
     - **Pagi**: Istirahat atau pemulihan aktif seperti peregangan ringan dan meditasi.
     - **Sore**: Pemulihan fisik dan perawatan cedera jika diperlukan (terapi fisik, pijat).
-B. **Duras Latihan**
+B. **Durasi Latihan**
   - Latihan berlangsung antara 4 hingga 6 jam per hari dengan jeda istirahat yang cukup untuk menghindari kelelahan yang dapat meningkatkan risiko cedera.
   - Pemulihan aktif termasuk stretching dan relaksasi setelah latihan intensitas tinggi adalah bagian integral dari sistem pelatihan.
 

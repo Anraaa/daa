@@ -1,0 +1,24 @@
+@startuml
+start
+
+:Login;
+if (Login Berhasil?) then (ya)
+  :Login Ke Sistem;
+else (tidak)
+  stop
+endif
+
+:Verifikasi Pengaduan;
+
+if (Pengaduan Valid?) then (Ya)
+  :Tandai Pengaduan Sebagai Valid;
+  :Penerusan Pengaduan ke Instansi Terkait;
+  :Ubah Status Menjadi "Diteruskan";
+else (Tidak)
+  :Tolak Pengaduan;
+  :Ubah Status Menjadi "Ditolak";
+endif
+
+:Masyarakat Mendapatkan Notifikasi Status;
+stop
+@enduml

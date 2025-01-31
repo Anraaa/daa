@@ -1,0 +1,30 @@
+@startuml
+start
+
+:Registrasi dan Login;
+if (Registrasi Berhasil?) then (ya)
+  :Login Ke Sistem;
+else (tidak)
+  stop
+endif
+
+:Mengajukan Pengaduan;
+:Isi Formulir Pengaduan (Masalah, Foto, Lokasi);
+
+:Verifikasi Pengaduan oleh Admin;
+if (Laporan Valid?) then (ya)
+  :Tindak Lanjut ke Instansi Terkait;
+  :Pembaruan Status Pengaduan;
+else (tidak)
+  :Tolak Pengaduan;
+endif
+
+:Melacak Status Pengaduan;
+if (Status Diperbarui?) then (ya)
+  :Status Pengaduan Diperbarui;
+else (tidak)
+  :Tunggu Pembaruan;
+endif
+
+stop
+@enduml
