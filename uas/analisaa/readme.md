@@ -47,13 +47,17 @@ Admin kelurahan bertugas mengelola laporan pengaduan, tanpa melakukan penanganan
 
 ---
 
-## 4. Flowchart Alur Pengaduan Sebagai Masyarakat
+### Flowchart Alur Pengaduan Sebagai Masyarakat
 
-Untuk flowchart alur pengaduan masyarakat, bisa [klik disini](img/fw_alur_pengaduan_masyarakat.png)
+![alt text](image.png)
 
-## 4. Flowchart Alur Pengaduan Sebagai Admin
+### Flowchart Alur Pengaduan Sebagai Admin
 
-Untuk flowchart alur pengaduan sebagai admin, bisa [klik disini](img/fw_alur_pengaduan_admin.png)
+![alt text](image-1.png)
+
+### Usecase Sistem Pengaduan Masyarakat
+
+![alt text](image-2.png)
 
 ## 5. Analisis Penggunaan Laravel Filament  
 

@@ -1,0 +1,26 @@
+@startuml
+left to right direction
+
+actor "Masyarakat" as M
+actor "Admin" as A
+
+rectangle "Sistem Pengaduan Masyarakat" {
+    usecase "Registrasi & Login" as UC1
+    usecase "Mengajukan Pengaduan" as UC2
+    usecase "Melacak Status Pengaduan" as UC3
+    usecase "Login Admin" as UC4
+    usecase "Verifikasi Pengaduan" as UC5
+    usecase "Meneruskan Pengaduan" as UC6
+    usecase "Memperbarui Status Pengaduan" as UC7
+}
+
+M --> UC1
+UC1 --> UC2
+UC2 --> UC3
+
+A --> UC4
+UC4 --> UC5
+UC5 --> UC6
+UC6 --> UC7
+
+@enduml
