@@ -57,7 +57,7 @@ Admin kelurahan bertugas mengelola laporan pengaduan, tanpa melakukan penanganan
 
 ### Usecase Sistem Pengaduan Masyarakat
 
-![alt text](image-2.png)
+![alt text](image-3.png)
 
 ## 5. Analisis Penggunaan Laravel Filament  
 
